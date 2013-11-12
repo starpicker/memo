@@ -1,0 +1,27 @@
+String^ path = Windows::ApplicationModel::Package::Current->InstalledLocation->Path;
+	
+	//readnv21
+	//HMSTREAM stream = MStreamOpenFromFile("800x450.nv21", STREAM_READ);
+	//MLong len = MStreamRead(stream, pBuf_y, y_len);
+	//MLong len2 = MStreamRead(stream, pBuf_uv, uv_len);
+	//MStreamClose(stream);
+
+	FILE* fp = NULL;
+	char szA [256];
+	WideCharToMultiByte(CP_ACP, 0, (LPWSTR)(path->Begin()), -1, szA, 256, NULL, NULL);
+	strcat_s(szA, "\\800x450.nv21");
+	fopen_s(&fp, szA, "rb");
+	if(fp != NULL)
+	{
+		int i =0;
+	}
+	if(fp != NULL)
+	{
+		//int temp3 = ftell(fp);
+	int len = fread(pBuf_y, y_len, 1, fp);
+	//int temp = ftell(fp);
+	//fseek(fp, y_len, SEEK_SET);
+	//int temp2 = ftell(fp);
+	int len2 = fread(pBuf_uv, uv_len, 1, fp);
+	fclose(fp);
+	}
