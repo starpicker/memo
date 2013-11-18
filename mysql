@@ -1,0 +1,13 @@
+ Access denied for user 'root'@'localhost
+service mysql stop
+
+mysqld_safe --user=mysql --skip-grant-tables --skip-networking&
+mysql -u root mysql
+mysql>UPDATE user SET Password=PASSWORD('newpassword') where USER='root'
+mysql>FLUSH PRIVILEGES
+mysql>quit
+
+service mysql restart
+
+mysql -uroot -p
+
