@@ -1,0 +1,1 @@
+msmtp --host=smtp.163.com --port=25 --auth=plain --from=starpicker1@163.com --user starpicker1 starpicker2@163.com
